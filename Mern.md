@@ -14,6 +14,8 @@ node index.js
 
 ![image](https://user-images.githubusercontent.com/67065306/132257908-fa9c87b4-4303-460a-a4db-25f4db1a2a36.png)
 
+**Testing Backend Code without Frontend using RESTful API**
 
-
-
+create a POST request to the API http://54.78.214.175:5000/api/todos
+  
+  
