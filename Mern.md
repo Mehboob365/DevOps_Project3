@@ -61,3 +61,44 @@ npm install nodemon --save-dev
 In Todo folder open the package.json file. Change the highlighted part of the below screenshot and replace with the code below.
 
 ![image](https://user-images.githubusercontent.com/67065306/132512884-b412bb36-7dd2-4532-9d69-1a70aeeaa1eb.png)
+
+**Configure Proxy in package.json**
+
+Change directory to ‘client’
+
+cd client
+
+Open the package.json file
+
+vi package.json
+
+Add the key value pair in the package.json file "proxy": "http://localhost:5000".
+
+The whole purpose of adding the proxy configuration in number 3 above is to make it possible to access the application directly from the browser by simply calling the server url like http://localhost:5000 rather than always including the entire path like http://localhost:5000/api/todos
+
+![image](https://user-images.githubusercontent.com/67065306/132514335-022814cd-55a6-4865-8c42-f72575be07a2.png)
+
+
+Now, ensure you are inside the Todo directory, and simply do:
+
+npm run dev
+
+Our app should open and start running on localhost:3000
+
+Important note: In order to be able to access the application from the Internet we have to open TCP port 3000 on EC2 by adding a new Security Group rule. 
+
+Creating your React Components
+One of the advantages of react is that it makes use of components, which are reusable and also makes code modular. 
+For our Todo app, there will be two stateful components and one stateless component.
+From your Todo directory run
+
+cd client
+move to the src directory
+
+cd src
+Inside your src folder create another folder called components
+
+mkdir components
+Move into the components directory with
+
+cd components
