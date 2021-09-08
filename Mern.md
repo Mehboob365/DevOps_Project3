@@ -1,5 +1,7 @@
   :
-  :
+  
+ lost screenshots on github as laptop crashed.
+ 
   :
 
 MONGODB DATABASE
@@ -17,5 +19,12 @@ node index.js
 **Testing Backend Code without Frontend using RESTful API**
 
 create a POST request to the API http://54.78.214.175:5000/api/todos
+
+![image](https://user-images.githubusercontent.com/67065306/132495688-2edea590-36e0-47e4-b7e2-cc6815a33fdd.png)
+
+  create a GET request to the API http://54.78.214.175:5000/api/todos
+  
+ ![image](https://user-images.githubusercontent.com/67065306/132495879-d2d5e4de-d475-45a0-8f06-5475e92907b8.png)
+
   
   
