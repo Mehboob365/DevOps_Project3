@@ -87,10 +87,10 @@ Our app should open and start running on localhost:3000
 
 Important note: In order to be able to access the application from the Internet we have to open TCP port 3000 on EC2 by adding a new Security Group rule. 
 
-Creating your React Components
+**Creating your React Components**
 One of the advantages of react is that it makes use of components, which are reusable and also makes code modular. 
 For our Todo app, there will be two stateful components and one stateless component.
-From your Todo directory run
+From our Todo directory run
 
 cd client
 move to the src directory
@@ -102,3 +102,135 @@ mkdir components
 Move into the components directory with
 
 cd components
+
+Inside ‘components’ directory create three files Input.js, ListTodo.js and Todo.js.
+
+touch Input.js ListTodo.js Todo.js
+
+Open Input.js file
+
+vi Input.js
+Copy and paste the following;
+
+import React, { Component } from 'react';
+import axios from 'axios';
+
+class Input extends Component {
+
+state = {
+action: ""
+}
+
+addTodo = () => {
+const task = {action: this.state.action}
+
+    if(task.action && task.action.length > 0){
+      axios.post('/api/todos', task)
+        .then(res => {
+          if(res.data){
+            this.props.getTodos();
+            this.setState({action: ""})
+          }
+        })
+        .catch(err => console.log(err))
+    }else {
+      console.log('input field required')
+    }
+
+}
+
+handleChange = (e) => {
+this.setState({
+action: e.target.value
+})
+}
+
+render() {
+let { action } = this.state;
+return (
+<div>
+<input type="text" onChange={this.handleChange} value={action} />
+<button onClick={this.addTodo}>add todo</button>
+</div>
+)
+}
+}
+
+export default Input
+
+
+
+To make use of Axios, which is a Promise based HTTP client for the browser and node.js, you need to cd into your client from your terminal and run yarn add axios or npm install axios.
+
+Move to the src folder
+
+cd ..
+Move to clients folder
+
+cd ..
+Install Axios
+
+npm install axios
+
+![image](https://user-images.githubusercontent.com/67065306/132516647-67b5aec5-a5c4-47ee-87c5-127972d287dd.png)
+
+**FRONTEND CREATION**
+
+cd src/components
+After that open your ListTodo.js
+
+vi ListTodo.js
+
+in the ListTodo.js copy and paste the following code
+
+![image](https://user-images.githubusercontent.com/67065306/132517233-065a7525-3a8c-4075-97a2-fad7c2b851a1.png)
+
+Then in our Todo.js file we write the following code;
+
+![image](https://user-images.githubusercontent.com/67065306/132517629-59bed2d7-ccfa-4ea7-90c3-c00e6955e924.png)
+
+
+We now need to make a little adjustment to our react code. We will Delete the logo and adjust our App.js to look like this.
+
+Move to the src folder
+cd ..
+Make sure that you are in the src folder and run
+
+vi App.js
+Copy and paste the code below into it
+
+![image](https://user-images.githubusercontent.com/67065306/132518263-20c558fa-618d-4614-8260-8a885d571865.png)
+
+
+Now, in the src directory open the App.css
+
+vi App.css
+Then paste the following code into App.css:
+
+![image](https://user-images.githubusercontent.com/67065306/132518773-9a04f9d1-bfec-4dda-bc29-ba7d13c97069.png)
+
+In the src directory open the index.css
+
+vim index.css
+
+Copy and paste the code below:
+
+![image](https://user-images.githubusercontent.com/67065306/132519176-3e7f871e-9b5e-4b34-b9af-a82edd80b9ee.png)
+
+Go to the Todo directory
+
+In the Todo directory we run:
+
+npm run dev
+
+![image](https://user-images.githubusercontent.com/67065306/132519648-21ce5f32-08a0-49f7-ba41-910f3866a57e.png)
+
+our To-Do app should be ready and fully functional with the functionality discussed earlier: creating a task, deleting a task and viewing all your tasks.
+
+![image](https://user-images.githubusercontent.com/67065306/132520691-d941fd45-8cab-4673-b6a6-8722995452c2.png)
+
+In this Project #3 we have created a simple To-Do and deployed it to MERN stack. 
+We wrote a frontend application using React.js that communicates with a backend application written using Expressjs. 
+We also created a Mongodb backend for storing tasks in a database.
+
+
