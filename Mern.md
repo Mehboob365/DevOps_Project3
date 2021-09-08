@@ -26,5 +26,38 @@ create a POST request to the API http://54.78.214.175:5000/api/todos
   
  ![image](https://user-images.githubusercontent.com/67065306/132495879-d2d5e4de-d475-45a0-8f06-5475e92907b8.png)
 
+ 
+  Delete Request:
   
+  ![image](https://user-images.githubusercontent.com/67065306/132510127-2f583b28-15df-48c0-84bf-06852b2789af.png)
   
+  **STEP 2 – FRONTEND CREATION**
+  
+  Since we are done with the functionality we want from our backend and API, it is time to create a user interface for a Web client (browser) to 
+  interact with the application via API. To start out with the frontend of the To-do app, we will use the create-react-app command to scaffold our app.
+
+In the same root directory as your backend code, which is the Todo directory, run:
+
+ npx create-react-app client
+
+![image](https://user-images.githubusercontent.com/67065306/132510846-07e20840-82a5-4a74-baf7-e48f748486c0.png)
+
+This created a new folder in our Todo directory called client, where we will add all the react code.
+
+**Running a React App**
+Before testing the react app, there are some dependencies that need to be installed.
+
+Install concurrently. It is used to run more than one command simultaneously from the same terminal window.
+
+npm install concurrently --save-dev
+
+![image](https://user-images.githubusercontent.com/67065306/132511662-41a5ce3a-4631-427f-8c55-746b1f508f55.png)
+
+Install nodemon. It is used to run and monitor the server. If there is any change in the server code, nodemon will restart it automatically and load the new changes.
+npm install nodemon --save-dev
+
+![image](https://user-images.githubusercontent.com/67065306/132511847-8527c8d4-1ea8-435d-892f-f8eca623b813.png)
+
+In Todo folder open the package.json file. Change the highlighted part of the below screenshot and replace with the code below.
+
+![image](https://user-images.githubusercontent.com/67065306/132512884-b412bb36-7dd2-4532-9d69-1a70aeeaa1eb.png)
